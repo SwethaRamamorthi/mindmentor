@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Twilio Video styling - ensure video elements are visible */
+#remote-video-container video,
+#local-video-container video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+  background-color: transparent !important;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-white text-slate-800;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+  }
+  
+  .glass-effect {
+    @apply bg-white/90 backdrop-blur-md border border-blue-200/30 shadow-lg;
+  }
+  
+  .chat-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-2xl;
+  }
+  
+  .chat-bubble-user {
+    @apply bg-blue-500 text-white ml-auto;
+  }
+  
+  .chat-bubble-bot {
+    @apply bg-slate-100 text-slate-800 mr-auto;
+  }
+}
+
+/* Responsive spacing and layout fixes */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Prevent overlapping on mobile */
+  .character-container {
+    margin-bottom: 4rem;
+  }
+  
+  .mood-selector {
+    margin-bottom: 2rem;
+  }
+  
+  .chat-container {
+    margin-bottom: 1rem;
+  }
+  
+  /* Adjust character size on mobile */
+  .character-body {
+    width: 8rem;
+    height: 8rem;
+  }
+  
+  /* Smaller speech bubbles on mobile */
+  .speech-bubble {
+    max-width: 16rem;
+    padding: 0.75rem;
+  }
+  
+  /* Ensure proper spacing between elements */
+  .character-section {
+    margin-bottom: 4rem;
+  }
+  
+  .mood-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .chat-section {
+    margin-top: 1rem;
+  }
+}
+
+/* Desktop spacing */
+@media (min-width: 769px) {
+  .character-section {
+    margin-bottom: 4rem;
+  }
+  
+  .mood-section {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .chat-section {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
